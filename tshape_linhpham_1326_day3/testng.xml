@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/linhpham/Documents/Git_Repository/tshape_linhpham_1326_day3/src/main/java/nt/tshape/test_day1.java">
+        <parameter name="browser"  value="chrome"/>
+        <classes>
+            <class name="nt.tshape.test_day1">
+                <methods>
+                    <include name="registerNewAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
