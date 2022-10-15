@@ -1,32 +1,29 @@
 package nt.tshape.PageModal;
 
 
-import nt.tshape.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class DemoIndexPage {
+public class DemoInputEmailPage {
     public WebDriver driver;
     private WebDriverWait wait;
 
     //Locator
-    String tbodyLoginFormXPath = "//form[@name=\"frmLogin\"]//table//tbody";
+    String tbodyInputFormXPath = "//form[@name='frmLogin']/table/tbody";
     private final By userIDTextBoxXPath = By.xpath(tbodyLoginFormXPath+"//tr[1]//td[2]//input[@name=\"uid\"]");
     private final By passwordTextBoxXPath = By.xpath(tbodyLoginFormXPath+"//tr[2]//td[2]//input[@name=\"password\"]");
     private final By loginButtonXPath = By.xpath(tbodyLoginFormXPath+"//tr[3]//td[2]//input[@name=\"btnLogin\"]");
     private final By createAccountLink = By.xpath("//h4[@class='barone']//following::div//ol//li[1]//a[contains(@href,'http://demo.guru99.com') and text()='here']");
     //Constructor
-    public DemoIndexPage(WebDriver driver){
+    public DemoInputEmailPage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
     }
 
-    public DemoIndexPage openPage(){
+    public DemoInputEmailPage openPage(){
         driver.get("https://demo.guru99.com/v4/index.php");
         return this;
     }
@@ -58,7 +55,7 @@ public class DemoIndexPage {
         }
     }
 
-    public DemoIndexPage clickOnCreateAccountLink(){
+    public DemoInputEmailPage clickOnCreateAccountLink(){
         try{
             driver.findElement(createAccountLink).click();
         }catch (Exception e){
