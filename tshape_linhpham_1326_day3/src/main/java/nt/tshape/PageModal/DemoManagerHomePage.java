@@ -13,13 +13,17 @@ public class DemoManagerHomePage {
 
     //Locator
     private final By userIDLabelXPath = By.xpath("//marquee[contains(@class,'heading3')]//parent::td//parent::tr//following::tr//td");
-
+    private final By newCustomerLink = By.xpath("//h2[contains(@class,'barone') and text()='Guru99 Bank']//parent::div//following::div//div//ul[@class='menusubnav']//a[text()='New Customer']");
     //Constructor
     public DemoManagerHomePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
     }
 
+    //Method
+    public String getPageTitle(){
+        return driver.getTitle();
+    }
 
     public String getUserID(){
         try {
@@ -28,6 +32,16 @@ public class DemoManagerHomePage {
             wait.until(ExpectedConditions.visibilityOfElementLocated(userIDLabelXPath));
             return driver.findElement(userIDLabelXPath).getText();
         }
+    }
+
+    public DemoManagerHomePage newCustomerLinkClick(){
+        try {
+            driver.findElement(newCustomerLink).click();
+        } catch (Exception e) {
+            wait.until(ExpectedConditions.elementToBeClickable(newCustomerLink));
+            driver.findElement(newCustomerLink).click();
+        }
+        return this;
     }
 
     public void clickToSkipAds(){

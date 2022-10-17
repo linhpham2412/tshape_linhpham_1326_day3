@@ -1,6 +1,7 @@
 package nt.tshape.PageModal;
 
 
+import nt.tshape.Test.Test_Day1;
 import nt.tshape.UserInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,8 +22,8 @@ public class DemoAccessDetailsPage {
     //Constructor
     public DemoAccessDetailsPage(WebDriver driver){
         this.driver = driver;
-        userInfo = new UserInfo();
         wait = new WebDriverWait(driver, 10);
+        userInfo = Test_Day1.userInfo;
     }
 
     public DemoAccessDetailsPage saveEmailID(){
