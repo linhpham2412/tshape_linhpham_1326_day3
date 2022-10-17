@@ -2,6 +2,7 @@ package nt.tshape.PageModal;
 
 
 import nt.tshape.Constant;
+import nt.tshape.UserInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -31,22 +32,24 @@ public class DemoIndexPage {
         return this;
     }
 
-    public void inputUserID(String userIDValue){
+    public DemoIndexPage inputUserID(String userIDValue){
         try {
             driver.findElement(userIDTextBoxXPath).sendKeys(userIDValue);
         } catch (Exception e) {
             wait.until(ExpectedConditions.visibilityOfElementLocated(userIDTextBoxXPath));
             driver.findElement(userIDTextBoxXPath).sendKeys(userIDValue);
         }
+        return this;
     }
 
-    public void inputPassword(String passwordValue){
+    public DemoIndexPage inputPassword(String passwordValue){
         try {
             driver.findElement(passwordTextBoxXPath).sendKeys(passwordValue);
         } catch (Exception e) {
             wait.until(ExpectedConditions.visibilityOfElementLocated(passwordTextBoxXPath));
             driver.findElement(passwordTextBoxXPath).sendKeys(passwordValue);
         }
+        return this;
     }
 
     public void loginButtonClick(){
