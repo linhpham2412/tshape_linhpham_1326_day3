@@ -1,6 +1,7 @@
 package nt.tshape.PageModal;
 
 
+import nt.tshape.UserInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -12,11 +13,8 @@ public class DemoInputEmailPage {
     private WebDriverWait wait;
 
     //Locator
-    String tbodyInputFormXPath = "//form[@name='frmLogin']/table/tbody";
-    private final By userIDTextBoxXPath = By.xpath(tbodyLoginFormXPath+"//tr[1]//td[2]//input[@name=\"uid\"]");
-    private final By passwordTextBoxXPath = By.xpath(tbodyLoginFormXPath+"//tr[2]//td[2]//input[@name=\"password\"]");
-    private final By loginButtonXPath = By.xpath(tbodyLoginFormXPath+"//tr[3]//td[2]//input[@name=\"btnLogin\"]");
-    private final By createAccountLink = By.xpath("//h4[@class='barone']//following::div//ol//li[1]//a[contains(@href,'http://demo.guru99.com') and text()='here']");
+    private final By emailIDTextBoxXPath = By.xpath("//td[contains(@align,'right') and text()='Email ID']//following::td/input[@name='emailid']");
+    private final By submitEmailButtonXPath = By.xpath("//td[contains(@align,'right') and text()='Email ID']//parent::tr//following::tr//child::td[2]//input[@name='btnLogin']");
     //Constructor
     public DemoInputEmailPage(WebDriver driver){
         this.driver = driver;
@@ -24,45 +22,31 @@ public class DemoInputEmailPage {
     }
 
     public DemoInputEmailPage openPage(){
-        driver.get("https://demo.guru99.com/v4/index.php");
+        driver.get("https://demo.guru99.com/");
         return this;
     }
 
-    public void inputUserID(String userIDValue){
+    public DemoInputEmailPage inputEmailID(String emailIDValue){
         try {
-            driver.findElement(userIDTextBoxXPath).sendKeys(userIDValue);
+            driver.findElement(emailIDTextBoxXPath).sendKeys(emailIDValue);
         } catch (Exception e) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(userIDTextBoxXPath));
-            driver.findElement(userIDTextBoxXPath).sendKeys(userIDValue);
-        }
-    }
-
-    public void inputPassword(String passwordValue){
-        try {
-            driver.findElement(passwordTextBoxXPath).sendKeys(passwordValue);
-        } catch (Exception e) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(passwordTextBoxXPath));
-            driver.findElement(passwordTextBoxXPath).sendKeys(passwordValue);
-        }
-    }
-
-    public void loginButtonClick(){
-        try {
-            driver.findElement(loginButtonXPath).click();
-        } catch (Exception e) {
-            wait.until(ExpectedConditions.elementToBeClickable(loginButtonXPath));
-            driver.findElement(loginButtonXPath).click();
-        }
-    }
-
-    public DemoInputEmailPage clickOnCreateAccountLink(){
-        try{
-            driver.findElement(createAccountLink).click();
-        }catch (Exception e){
-            wait.until(ExpectedConditions.elementToBeClickable(createAccountLink));
-            driver.findElement(createAccountLink).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(emailIDTextBoxXPath));
+            driver.findElement(emailIDTextBoxXPath).sendKeys(emailIDValue);
         }
         return this;
+    }
+
+    public void submitEmailButtonClick(){
+        try {
+            driver.findElement(submitEmailButtonXPath).click();
+        } catch (Exception e) {
+            wait.until(ExpectedConditions.elementToBeClickable(submitEmailButtonXPath));
+            driver.findElement(submitEmailButtonXPath).click();
+        }
+    }
+
+    public void navigateBackButtonClick(){
+        driver.navigate().back();
     }
 
     public void clickToSkipAds(){
