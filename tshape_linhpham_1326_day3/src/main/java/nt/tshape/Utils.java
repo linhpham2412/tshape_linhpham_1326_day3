@@ -1,13 +1,11 @@
 package nt.tshape;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.Random;
 
 public class Utils {
-    public static String generateTestEmail(){
+    public static String generateTestEmail() {
         Random emailRandIndex = new Random();
-        return emailRandIndex.nextInt()+"@mail.com";
+        return emailRandIndex.nextInt() + "@mail.com";
     }
 
     public static String generateTestCustomerName(int noOfCharsToGenerate) {

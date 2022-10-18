@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserInfo {
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
     private String emailID;
     private String password;
     private String customerName;
@@ -17,9 +18,6 @@ public class UserInfo {
     private String customerMobileNo;
     private String customerEmail;
     private String customerPassword;
-
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-
 
     public String getEmailID() {
         return emailID;
@@ -46,7 +44,6 @@ public class UserInfo {
     }
 
 
-
     public String getCustomerDateOfBirth(String datePattern) throws ParseException {
         simpleDateFormat.applyPattern(datePattern);
         return simpleDateFormat.format(customerDateOfBirth);
@@ -57,6 +54,7 @@ public class UserInfo {
         Date actualDate = simpleDateFormat.parse(actualDOB);
         return customerDateOfBirth.compareTo(actualDate);
     }
+
     public void setCustomerDateOfBirth(String dateOfBirth, String datePattern) throws ParseException {
         simpleDateFormat.applyPattern(datePattern);
         this.customerDateOfBirth = simpleDateFormat.parse(dateOfBirth);

@@ -13,7 +13,7 @@
             </class>
             <class name="nt.tshape.Test.Test_Day2">
                 <methods>
-                    <exclude name="scenario1"/>
+                    <include name="scenario1"/>
                     <include name="createNewCustomer"/>
                 </methods>
             </class>

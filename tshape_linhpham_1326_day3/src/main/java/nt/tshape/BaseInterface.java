@@ -3,20 +3,18 @@ package nt.tshape;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseInterface {
     public WebDriver driver;
 
-    @Parameters ({"browser"})
+    @Parameters({"browser"})
     @BeforeClass
-    public void loadWebDriver(@Optional("chrome") String browser){
-        if (browser.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver","C:\\Users\\linhpham\\Documents\\Tshape Training\\chromedriver_win32\\chromedriver.exe");
+    public void loadWebDriver(@Optional("chrome") String browser) {
+        if (browser.equals("chrome")) {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\linhpham\\Documents\\Tshape Training\\chromedriver_win32\\chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized"); // open Browser in maximized mode
             options.addArguments("disable-infobars"); // disabling infobars
