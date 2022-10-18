@@ -1,33 +1,31 @@
 package nt.tshape.PageModal;
 
-import org.openqa.selenium.By;
+import nt.tshape.Constant;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AutoPracticeContacUsPage {
     public WebDriver driver;
-    private WebDriverWait wait;
-
     //locator
     private final String pageTitle = driver.getTitle();
+    private final WebDriverWait wait;
 
-   //contructor
-   public AutoPracticeContacUsPage(WebDriver driver) {
-       this.driver = driver;
-       wait = new WebDriverWait(driver, 10);
-   }
-
-   //method
-    public String getPageTitle(){
-       return this.pageTitle;
+    //contructor
+    public AutoPracticeContacUsPage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Constant.LONG_TIME);
     }
 
-    public void navigateBackButtonClick(){
+    //method
+    public String getPageTitle() {
+        return this.pageTitle;
+    }
+
+    public void navigateBackButtonClick() {
         driver.navigate().back();
     }
 
-    public void navigateForwardButtonClick(){
+    public void navigateForwardButtonClick() {
         driver.navigate().forward();
     }
 }

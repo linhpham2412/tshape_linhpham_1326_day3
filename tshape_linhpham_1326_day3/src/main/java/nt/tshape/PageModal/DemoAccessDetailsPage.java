@@ -10,23 +10,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DemoAccessDetailsPage {
-    public WebDriver driver;
-    private WebDriverWait wait;
-    public UserInfo userInfo;
-
-    //Locator
-    String tbodyLoginFormXPath = "//form[@name=\"frmLogin\"]//table//tbody";
     private final By userIDValueLabelXPath = By.xpath("//td[contains(@class,'accpage') and text()='User ID :']//parent::tr//child::td[2]");
     private final By passwordValueLabelXPath = By.xpath("//td[contains(@class,'accpage') and text()='Password :']//parent::tr//child::td[2]");
+    public WebDriver driver;
+    public UserInfo userInfo;
+    //Locator
+    String tbodyLoginFormXPath = "//form[@name=\"frmLogin\"]//table//tbody";
+    private final WebDriverWait wait;
 
     //Constructor
-    public DemoAccessDetailsPage(WebDriver driver){
+    public DemoAccessDetailsPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
         userInfo = Test_Day1.userInfo;
     }
 
-    public DemoAccessDetailsPage saveEmailID(){
+    public DemoAccessDetailsPage saveEmailID() {
         try {
             userInfo.setEmailID(driver.findElement(userIDValueLabelXPath).getText());
         } catch (Exception e) {
@@ -36,7 +35,7 @@ public class DemoAccessDetailsPage {
         return this;
     }
 
-    public DemoAccessDetailsPage savePassword(){
+    public DemoAccessDetailsPage savePassword() {
         try {
             userInfo.setPassword(driver.findElement(passwordValueLabelXPath).getText());
         } catch (Exception e) {
@@ -46,18 +45,18 @@ public class DemoAccessDetailsPage {
         return this;
     }
 
-    public void navigateBackButtonClick(){
-            driver.navigate().back();
+    public void navigateBackButtonClick() {
+        driver.navigate().back();
     }
 
-    public void clickToSkipAds(){
+    public void clickToSkipAds() {
         Actions clickOnPos10_10 = new Actions(driver);
         clickOnPos10_10
-                .moveByOffset(10,10)
+                .moveByOffset(10, 10)
                 .click()
                 .build()
                 .perform();
-        synchronized (driver){
+        synchronized (driver) {
             try {
                 driver.wait(3000);
             } catch (InterruptedException e) {

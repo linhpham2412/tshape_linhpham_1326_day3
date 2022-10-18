@@ -9,23 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.ParseException;
-import java.util.Date;
-import java.util.Random;
-
 
 
 public class DemoAddCustomerPage extends BaseInterface {
-    public WebDriver driver;
-    private WebDriverWait wait;
-    private UserInfo userInfo;
-
-    //contructor
-    public DemoAddCustomerPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
-        userInfo = Test_Day1.userInfo;
-    }
-
     //locator
     private final By customerNameTextFieldXPath = new By.ByXPath("//form[@name='addcust']//parent::table//following::table//td[text()='Customer Name']//following::td//input[@name='name']");
     private final By customerMaleCheckBoxXPath = new By.ByXPath("//form[@name='addcust']//parent::table//following::table//td[text()='Gender']//following::td//input[@value='m']");
@@ -39,9 +25,18 @@ public class DemoAddCustomerPage extends BaseInterface {
     private final By customerEmailTextFieldXPath = new By.ByXPath("//form[@name='addcust']//parent::table//following::table//td[text()='E-mail']//following::td//input[@name='emailid']");
     private final By customerPasswordTextFieldXPath = new By.ByXPath("//form[@name='addcust']//parent::table//following::table//td[text()='Password']//following::td//input[@name='password']");
     private final By customerSubmitButtonXPath = new By.ByXPath("//form[@name='addcust']//parent::table//following::table//td//following::td//input[@name='sub']");
+    public WebDriver driver;
+    private final WebDriverWait wait;
+    private final UserInfo userInfo;
+    //contructor
+    public DemoAddCustomerPage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 10);
+        userInfo = Test_Day1.userInfo;
+    }
 
     //method
-    public DemoAddCustomerPage inputCustomerName(String customerName){
+    public DemoAddCustomerPage inputCustomerName(String customerName) {
         try {
             driver.findElement(customerNameTextFieldXPath).sendKeys(customerName);
         } catch (Exception e) {
@@ -52,7 +47,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage checkCustomerGenderMale(){
+    public DemoAddCustomerPage checkCustomerGenderMale() {
         try {
             driver.findElement(customerMaleCheckBoxXPath).click();
         } catch (Exception e) {
@@ -63,7 +58,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage checkCustomerGenderFemale(){
+    public DemoAddCustomerPage checkCustomerGenderFemale() {
         try {
             driver.findElement(customerFemaleCheckBoxXPath).click();
         } catch (Exception e) {
@@ -81,11 +76,11 @@ public class DemoAddCustomerPage extends BaseInterface {
             wait.until(ExpectedConditions.visibilityOfElementLocated(customerDOBTextFieldXPath));
             driver.findElement(customerDOBTextFieldXPath).sendKeys(customerDOB);
         }
-        userInfo.setCustomerDateOfBirth(customerDOB,Datepattern);
+        userInfo.setCustomerDateOfBirth(customerDOB, Datepattern);
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerPINNo(String customerPINNo){
+    public DemoAddCustomerPage inputCustomerPINNo(String customerPINNo) {
         try {
             driver.findElement(customerPINTextFieldXPath).sendKeys(customerPINNo);
         } catch (Exception e) {
@@ -96,7 +91,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerAddress(String customerAddress){
+    public DemoAddCustomerPage inputCustomerAddress(String customerAddress) {
         try {
             driver.findElement(customerAddressTextFieldXPath).sendKeys(customerAddress);
         } catch (Exception e) {
@@ -107,7 +102,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerCity(String customerCity){
+    public DemoAddCustomerPage inputCustomerCity(String customerCity) {
         try {
             driver.findElement(customerCityTextFieldXPath).sendKeys(customerCity);
         } catch (Exception e) {
@@ -118,7 +113,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerState(String customerState){
+    public DemoAddCustomerPage inputCustomerState(String customerState) {
         try {
             driver.findElement(customerStateTextFieldXPath).sendKeys(customerState);
         } catch (Exception e) {
@@ -129,7 +124,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerEmail(String customerEmail){
+    public DemoAddCustomerPage inputCustomerEmail(String customerEmail) {
         try {
             driver.findElement(customerEmailTextFieldXPath).sendKeys(customerEmail);
         } catch (Exception e) {
@@ -140,7 +135,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerMobileNo(String customerMobileNo){
+    public DemoAddCustomerPage inputCustomerMobileNo(String customerMobileNo) {
         try {
             driver.findElement(customerMobileNumberTextFieldXPath).sendKeys(customerMobileNo);
         } catch (Exception e) {
@@ -151,7 +146,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public DemoAddCustomerPage inputCustomerPassword(String customerPassword){
+    public DemoAddCustomerPage inputCustomerPassword(String customerPassword) {
         try {
             driver.findElement(customerPasswordTextFieldXPath).sendKeys(customerPassword);
         } catch (Exception e) {
@@ -162,7 +157,7 @@ public class DemoAddCustomerPage extends BaseInterface {
         return this;
     }
 
-    public void addNewCustomerSubmitButtonClick(){
+    public void addNewCustomerSubmitButtonClick() {
         try {
             driver.findElement(customerSubmitButtonXPath).click();
         } catch (Exception e) {

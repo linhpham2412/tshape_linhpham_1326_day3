@@ -9,27 +9,24 @@ import nt.tshape.UserInfo;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
-import static nt.tshape.Utils.*;
+import static nt.tshape.Utils.generateTestEmail;
 
 public class Test_Day1 extends BaseInterface {
 
     public static UserInfo userInfo = new UserInfo();
 
-    public UserInfo getUserInfo(){
+    public UserInfo getUserInfo() {
         return userInfo;
     }
 
     @Test
-    public void registerNewAccount(){
+    public void registerNewAccount() {
         DemoIndexPage demoIndexPage = new DemoIndexPage(driver);
         DemoInputEmailPage demoInputEmailpage = new DemoInputEmailPage(driver);
         DemoAccessDetailsPage demoAccessDetailsPage = new DemoAccessDetailsPage(driver);
 
         demoIndexPage
                 .openPage()
-                .clickOnCreateAccountLink()
                 .clickToSkipAds();
         demoInputEmailpage
                 .inputEmailID(generateTestEmail())
@@ -42,7 +39,7 @@ public class Test_Day1 extends BaseInterface {
     }
 
     @Test
-    public void verifyNewAccount(){
+    public void verifyNewAccount() {
         DemoIndexPage demoIndexPage = new DemoIndexPage(driver);
         DemoManagerHomePage demoManagerHomePage = new DemoManagerHomePage(driver);
 
@@ -51,6 +48,6 @@ public class Test_Day1 extends BaseInterface {
                 .inputUserID(userInfo.getEmailID())
                 .inputPassword(userInfo.getPassword())
                 .loginButtonClick();
-        Assert.assertEquals(demoManagerHomePage.getUserID(),"Manger Id : "+userInfo.getEmailID(),"UserID is not same with created one!");
+        Assert.assertEquals(demoManagerHomePage.getUserID(), "Manger Id : " + userInfo.getEmailID(), "UserID is not same with created one!");
     }
 }
