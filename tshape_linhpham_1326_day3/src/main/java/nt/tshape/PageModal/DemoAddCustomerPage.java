@@ -1,7 +1,7 @@
 package nt.tshape.PageModal;
 
 import nt.tshape.BaseInterface;
-import nt.tshape.Test.Test_Day1;
+import nt.tshape.Test.Day1Testcases;
 import nt.tshape.UserInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +32,7 @@ public class DemoAddCustomerPage extends BaseInterface {
     public DemoAddCustomerPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
-        userInfo = Test_Day1.userInfo;
+        userInfo = Day1Testcases.userInfo;
     }
 
     //method

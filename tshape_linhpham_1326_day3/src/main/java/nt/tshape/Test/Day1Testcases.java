@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import static nt.tshape.Utils.generateTestEmail;
 
-public class Test_Day1 extends BaseInterface {
+public class Day1Testcases extends BaseInterface {
 
     public static UserInfo userInfo = new UserInfo();
 

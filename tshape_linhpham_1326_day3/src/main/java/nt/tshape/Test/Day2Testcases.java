@@ -11,12 +11,12 @@ import java.text.ParseException;
 import static nt.tshape.Utils.generateTestCustomerName;
 import static nt.tshape.Utils.generateTestEmail;
 
-public class Test_Day2 extends BaseInterface {
+public class Day2Testcases extends BaseInterface {
 
-    public static UserInfo userInfo = Test_Day1.userInfo;
+    public static UserInfo userInfo = Day1Testcases.userInfo;
 
     @Test
-    public void scenario1() {
+    public void websiteNavigationTest() {
         AutoPracticeIndexPage autoPracticeIndexPage = new AutoPracticeIndexPage(driver);
         AutoPracticeContacUsPage autoPracticeContacUsPage = new AutoPracticeContacUsPage(driver);
 
@@ -44,7 +44,6 @@ public class Test_Day2 extends BaseInterface {
 
         demoIndexPage
                 .openPage()
-                .checkIframeAndSkipIt()
                 .inputUserID(userInfo.getEmailID())
                 .inputPassword(userInfo.getPassword())
                 .loginButtonClick();

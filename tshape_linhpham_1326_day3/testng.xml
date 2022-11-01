@@ -2,18 +2,36 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="Tshape Linh Pham 1326 Day3" thread-count="1">
+          name="Tshape_LinhPham_1326_Day3_Chrome" thread-count="5">
         <parameter name="browser"  value="chrome"/>
         <classes>
-            <class name="nt.tshape.Test.Test_Day1">
+            <class name="nt.tshape.Test.Day1Testcases">
                 <methods>
                     <include name="registerNewAccount"/>
                     <include name="verifyNewAccount"/>
                 </methods>
             </class>
-            <class name="nt.tshape.Test.Test_Day2">
+            <class name="nt.tshape.Test.Day2Testcases">
                 <methods>
-                    <include name="scenario1"/>
+                    <include name="websiteNavigationTest"/>
+                    <include name="createNewCustomer"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="Tshape_LinhPham_1326_Day3_Firefox" thread-count="5">
+        <parameter name="browser"  value="firefox"/>
+        <classes>
+            <class name="nt.tshape.Test.Day1Testcases">
+                <methods>
+                    <include name="registerNewAccount"/>
+                    <include name="verifyNewAccount"/>
+                </methods>
+            </class>
+            <class name="nt.tshape.Test.Day2Testcases">
+                <methods>
+                    <include name="websiteNavigationTest"/>
                     <include name="createNewCustomer"/>
                 </methods>
             </class>
